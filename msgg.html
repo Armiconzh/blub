@@ -92,7 +92,7 @@
   </style>
 </head>
 <body>
-  <h1>Selamat Pagi Icongku Sayanggg</h1>
+  <h1 id="greeting">Selamat Pagi Icongku Sayanggg</h1>
   <button id="movingButton" onclick="moveButton()">Klik tombol ini conggg</button>
 
   <script>
@@ -107,6 +107,22 @@
       button.style.left = randomX + "px";
       button.style.top = randomY + "px";
     }
+
+    function updateGreeting() {
+      var greetingElement = document.getElementById("greeting");
+      var currentTime = new Date().getHours();
+
+      if (currentTime >= 0 && currentTime < 12) {
+        greetingElement.textContent = "Selamat Pagi Icongku Sayanggg";
+      } else if (currentTime >= 12 && currentTime < 18) {
+        greetingElement.textContent = "Selamat Siang Icongku Sayanggg";
+      } else {
+        greetingElement.textContent = "Selamat Malam Icongku Sayanggg";
+      }
+    }
+
+    // Panggil fungsi untuk pertama kali
+    updateGreeting();
   </script>
 </body>
 </html>
