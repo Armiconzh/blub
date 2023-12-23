@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinta Sejati</title>
+    <style>
+        body {
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 36px;
+            margin: 16px 0;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0 16px;
+            box-sizing: border-box;
+        }
+
+        .slide {
+            position: relative;
+            display: none;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        .slide p {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 16px;
+            font-style: italic;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .dot-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .active, .dot:hover {
+            background-color: purple;
+        }
+
+        .quote {
+            margin-top: 20px;
+            padding: 10px;
+            border: 5px solid white;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+            background-size: 90px 30px;
+        }
+
+        .heart {
+            background-position: 0 0;
+        }
+
+        .flower {
+            background-position: -30px 0;
+        }
+
+        .ring {
+            background-position: -60px 0;
+        }
+
+        .game {
+            margin-top: 20px;
+            padding: 10px;
+            border: 5px solid white;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .game button {
+            display: block;
+            width: 150px;
+            height: 40px;
+            margin: 10px auto;
+            background-color: purple;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .game button:hover {
+            background-color: white;
+            color: purple;
+        }
+
+        .game p {
+            display: none;
+            color: purple;
+            font-size: 24px;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 48px;
+            }
+            .slide p {
+                font-size: 20px;
+            }
+            .prev, .next {
+                font-size: 32px;
+            }
+            .dot {
+                width: 12px;
+                height: 12px;
+                margin: 8px;
+            }
+            .quote {
+                font-size: 24px;
+            }
+            .icon {
+                width: 40px;
+                height: 40px;
+                margin: 16px;
+                background-size: 120px 40px;
+            }
+            .game button {
+                width: 200px;
+                height: 50px;
+                font-size: 24px;
+            }
+            .game p {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Cinta Sejati</h1>
+    <div class="container">
+        <!-- Slide untuk foto-foto dia -->
+        <div class="slide">
+            <img src="pict/1.jpg" alt="Foto 1">
+            <p>Foto pertama kita bersama</p>
+        </div>
+        <div class="slide">
+            <img src="pict/2.jpg" alt="Foto 2">
+            <p>Foto saat kita piknik di taman</p>
+        </div>
+        <div class="slide">
+            <img src="pict/3.jpg" alt="Foto 3">
+            <p>Foto saat kita menonton film favorit kita</p>
+        </div>
+        <div class="slide">
+            <img src="pict/4.jpg" alt="Foto 4">
+            <p>Foto saat kita bermain di pantai</p>
+        </div>
+        <div class="slide">
+            <img src="pict/5.jpg" alt="Foto 5">
+            <p>Foto saat kita makan malam romantis</p>
+        </div>
+        <div class="slide">
+            <img src="pict/6.jpg" alt="Foto 6">
+            <p>Foto saat kita berpelukan di sofa</p>
+        </div>
+        <div class="slide">
+            <img src="pict/7.jpg" alt="Foto 7">
+            <p>Foto saat kita berciuman di bawah pohon</p>
+        </div>
+        <div class="slide">
+            <img src="pict/8.jpg" alt="Foto 8">
+            <p>Foto saat kita berjalan-jalan di kota</p>
+        </div>
+        <div class="slide">
+            <img src="pict/9.jpg" alt="Foto 9">
+            <p>Foto saat kita bermain salju</p>
+        </div>
+        <div class="slide">
+            <img src="pict/10.jpg" alt="Foto 10">
+            <p>Foto saat kita mengunjungi museum</p>
+        </div>
+        <div class="slide">
+            <img src="pict/11.jpg" alt="Foto 11">
+            <p>Foto saat kita bermain gitar bersama</p>
+        </div>
+        <div class="slide">
+            <img src="pict/12.jpg" alt="Foto 12">
+            <p>Foto saat kita menari di pesta</p>
+        </div>
+        <div class="slide">
+            <img src="pict/13.jpg" alt="Foto 13">
+            <p>Foto saat kita berlibur di Bali</p>
+        </div>
+        <div class="slide">
+            <img src="pict/14.jpg" alt="Foto 14">
+            <p>Foto saat kita bermain api unggun</p>
+        </div>
+        <div class="slide">
+            <img src="pict/15.jpg" alt="Foto 15">
+            <p>Foto terakhir kita bersama</p>
+        </div>
+        <!-- Tombol untuk mengganti slide -->
+        <span class="prev">❮</span>
+        <span class="next">❯</span>
+        <!-- Titik-titik untuk menunjukkan slide aktif -->
+        <div class="dot-container">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <!-- Kutipan-kutipan menarik tentang cinta -->
+        <div class="quote">
+            "Cinta adalah perasaan yang tidak bisa dijelaskan, hanya bisa dirasakan." - Anonim
+        </div>
+        <div class="quote">
+            "Cinta adalah ketika kamu mengambil segalanya dari seseorang, tapi dia tetap mencintaimu." - Bob Marley
+        </div>
+        <div class="quote">
+            "Cinta adalah ketika kamu menemukan seseorang yang membuatmu merasa lengkap." - Tom Cruise
+        </div>
+        <div class="quote">
+            "Cinta adalah ketika kamu tidak bisa hidup tanpa seseorang." - Celine Dion
+        </div>
+        <div class="quote">
+            "Cinta adalah ketika kamu rela berkorban untuk kebahagiaan seseorang." - Mother Teresa
+        </div>
+        <!-- Animasi dan icon bertemakan cinta -->
+        <div class="icon heart"></div>
+        <div class="icon flower"></div>
+        <div class="icon ring"></div>
+        <!-- Sebuah interaksi interaktif yang bisa dimainkan pengguna -->
+        <div class="game">
+            <h1>Aku mencintaimu, kamu mencintaiku juga?</h1>
+            <button id="yes">Ya</button>
+            <button id="no">Tidak</button>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script>
+        // Variabel untuk menyimpan slide dan dot
+        var slides = document.getElementsByClassName("slide");
+        var dots = document.getElementsByClassName("dot");
+        // Variabel untuk menyimpan indeks slide aktif
+        var slideIndex = 0;
+        // Fungsi untuk menampilkan slide pertama
+        function showFirstSlide() {
+            slides[0].style.display = "block";
+            dots[0].className += " active";
+        }
+        // Fungsi untuk mengganti slide berdasarkan arah
+        function changeSlide(n) {
+            // Menyembunyikan slide aktif
+            slides[slideIndex].style.display = "none";
+            dots[slideIndex].className = dots[slideIndex].className.replace(" active", "");
+            // Menyesuaikan indeks slide berdasarkan arah
+            slideIndex += n;
+            // Memastikan indeks tetap berada dalam batas yang benar
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+            // Menampilkan slide baru
+            slides[slideIndex].style.display = "block";
+            dots[slideIndex].className += " active";
+        }
+        // Fungsi untuk menampilkan slide berdasarkan dot yang diklik
+        function currentSlide(n) {
+            // Menyembunyikan slide aktif
+            slides[slideIndex].style.display = "none";
+            dots[slideIndex].className = dots[slideIndex].className.replace(" active", "");
+            // Menyesuaikan indeks slide berdasarkan dot yang diklik
+            slideIndex = n;
+            // Menampilkan slide baru
+            slides[slideIndex].style.display = "block";
+            dots[slideIndex].className += " active";
+        }
+        // Fungsi untuk menampilkan hasil dari interaksi interaktif
+        function showResult(isYes) {
+            var resultText = isYes ? "Ya, aku juga mencintaimu ❤️" : "Oh tidak, apakah aku terlalu cepat mengatakannya?";
+            document.getElementById("result").innerText = resultText;
+            document.getElementById("result").style.display = "block";
+        }
+        // Memanggil fungsi untuk menampilkan slide pertama dan dot pertama
+        showFirstSlide();
+        // Menambahkan event listener untuk tombol sebelumnya
+        document.querySelector(".prev").addEventListener("click", function() {
+            changeSlide(-1);
+        });
+        // Menambahkan event listener untuk tombol selanjutnya
+        document.querySelector(".next").addEventListener("click", function() {
+            changeSlide(1);
+        });
+        // Menambahkan event listener untuk dot-dot pada slider
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].addEventListener("click", function() {
+                var dotIndex = Array.from(dots).indexOf(this);
+                currentSlide(dotIndex);
+            });
+        }
+        // Menambahkan event listener untuk tombol "Ya" pada interaksi interaktif
+        document.getElementById("yes").addEventListener("click", function() {
+            showResult(true);
+        });
+        // Menambahkan event listener untuk tombol "Tidak" pada interaksi interaktif
+        document.getElementById("no").addEventListener("click", function() {
+            showResult(false);
+        });
+    </script>
+</body>
+</html>
