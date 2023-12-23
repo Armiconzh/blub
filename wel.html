@@ -155,6 +155,30 @@
             .prev, .next {
                 font-size: 1.2em;
             }
+
+	  .prev, .next {
+            position: absolute;
+            top: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff496b;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .prev:hover, .next:hover {
+            color: #ff3252;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
         }
     </style>
 </head>
@@ -166,7 +190,7 @@
 
         <p id="welcomingText">Selamat datang, cinta! Terima kasih telah hadir dalam perjalanan kita bersama.</p>
 
-        <button onclick="changeText()">Ini Tombol Ajaib</button>
+        <button onclick="changeText()">Ubah Teks Sambutan</button>
 
         <div class="feature">
             <div class="feature-item">
@@ -184,8 +208,6 @@
         </div>
 
         <div class="slideshow-container" id="slideshow-container"></div>
-        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-        <button class="next" onclick="plusSlides(1)">&#10095;</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -225,6 +247,23 @@
                 img.src = "pict/" + i + ".jpg";
                 img.alt = "Slide " + i;
                 slide.appendChild(img);
+
+                var prevButton = document.createElement("button");
+                prevButton.className = "prev";
+                prevButton.innerHTML = "&#10094;";
+                prevButton.onclick = function() {
+                    plusSlides(-1);
+                };
+                slide.appendChild(prevButton);
+
+                var nextButton = document.createElement("button");
+                nextButton.className = "next";
+                nextButton.innerHTML = "&#10095;";
+                nextButton.onclick = function() {
+                    plusSlides(1);
+                };
+                slide.appendChild(nextButton);
+
                 slideshowContainer.appendChild(slide);
             }
 
