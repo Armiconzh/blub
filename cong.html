@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Surprise</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f1f1;
+            color: #4a4a4a;
+            margin: 0;
+        }
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #greeting {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ff69b4;
+        }
+        #heart-game {
+            cursor: pointer;
+            font-size: 36px;
+            color: #ff0000;
+        }
+        #background-heart {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+            font-size: 150px;
+            color: #ff0000;
+        }
+        #love-note {
+            font-style: italic;
+            font-size: 18px;
+            color: #6c757d;
+            margin-top: 20px;
+        }
+        #flower-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            #container {
+                max-width: 100%;
+                border-radius: 0;
+            }
+            #heart-game {
+                font-size: 24px;
+            }
+            #background-heart {
+                font-size: 80px;
+            }
+            #love-note {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="background-heart">❤️</div>
+    <div id="container">
+        <div id="greeting">Dear Icong, my love!</div>
+        <div id="game-container">
+            <span id="heart-game">❤️</span>
+        </div>
+        <div id="love-note">Tekan lope lope nya coba cong.</div>
+        <img id="flower-image" src="https://drive.google.com/uc?id=14jhlZ00ZS6yu3hPtUpMjvmaweUiAvvYo" alt="Romantic Flower">
+    </div>
+
+    <script>
+        // Interactive Greeting
+        const greeting = document.getElementById('greeting');
+        const messages = [
+            "Icong itu....",
+            "Bau jigongg.",
+            "Silit.",
+            "Conggg.",
+            "Udah boker hari ini?.",
+            "Hm"
+        ];
+
+        setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            greeting.innerText = messages[randomIndex];
+        }, 5000);
+
+        // Romance-related Mini Game
+        const heartGame = document.getElementById('heart-game');
+        let clickCount = 0;
+
+        heartGame.addEventListener('click', () => {
+            clickCount++;
+
+            if (clickCount === 10) {
+                alert('Selamat icong gabut!');
+                clickCount = 0;
+            }
+        });
+    </script>
+</body>
+</html>
