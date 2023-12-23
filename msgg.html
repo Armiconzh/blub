@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selamat Pagi</title>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
@@ -25,7 +27,7 @@
       text-shadow: 2px 2px 4px #000000;
       animation: rainbow 5s infinite;
       font-size: 3.5vw;
-      font-weight: bold; /* Menambahkan tebal (bold) */
+      font-weight: bold;
     }
 
     p {
@@ -35,24 +37,25 @@
     }
 
     button {
-      display: block;
-      margin: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       padding: 1.5vw 3vw;
       background-color: green;
       color: white;
       border: none;
       cursor: pointer;
       box-shadow: 0 0.3vw #666;
-      transform: translateY(0.2vw);
     }
 
     button:hover {
-      transform: scale(1.1);
+      transform: translate(-50%, -50%) scale(1.1);
     }
 
     button:active {
       box-shadow: 0 0.1vw #666;
-      transform: translateY(0.3vw);
+      transform: translate(-50%, -50%) translateY(0.3vw);
     }
 
     @keyframes rainbow {
@@ -73,7 +76,7 @@
     @media (max-width: 600px) {
       h1 {
         font-size: 4vw;
-        font-weight: bold; /* Menambahkan tebal (bold) */
+        font-weight: bold;
       }
 
       p {
@@ -84,12 +87,26 @@
         font-size: 2vw;
         padding: 2vw 4vw;
         box-shadow: 0 0.4vw #666;
-        transform: translateY(0.4vw);
       }
     }
   </style>
 </head>
 <body>
-  <h1>🩷🩷Selamat Pagi Icongku Sayanggg🩷🩷</h1>
+  <h1>Selamat Pagi Icongku Sayanggg</h1>
+  <button id="movingButton" onclick="moveButton()">Klik tombol ini conggg</button>
+
+  <script>
+    function moveButton() {
+      var button = document.getElementById("movingButton");
+      var maxX = window.innerWidth - button.offsetWidth;
+      var maxY = window.innerHeight - button.offsetHeight;
+
+      var randomX = Math.floor(Math.random() * maxX);
+      var randomY = Math.floor(Math.random() * maxY);
+
+      button.style.left = randomX + "px";
+      button.style.top = randomY + "px";
+    }
+  </script>
 </body>
 </html>
