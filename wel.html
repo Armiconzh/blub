@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Love Journey</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffcccc, #ffb6b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ff496b;
+        }
+
+        .container {
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        #welcomingText {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #ff496b;
+        }
+
+        button {
+            background: #ff496b;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background: #ff3252;
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            background: #ffccd5;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .feature-item h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #ff496b;
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .slide-img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff496b;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .prev:hover, .next:hover {
+            color: #ff3252;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            #welcomingText {
+                font-size: 1.5em;
+            }
+
+            button {
+                padding: 12px 24px;
+            }
+
+            .feature {
+                margin-top: 20px;
+            }
+
+            .feature-item {
+                padding: 15px;
+            }
+
+            .slideshow-container {
+                margin-top: 10px;
+            }
+
+            .prev, .next {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Our Love Journey</h1>
+        </header>
+
+        <p id="welcomingText">Selamat datang, cinta! Terima kasih telah hadir dalam perjalanan kita bersama.</p>
+
+        <button onclick="changeText()">Ini Tombol Ajaib</button>
+
+        <div class="feature">
+            <div class="feature-item">
+                <h2>Perjalanan Cinta</h2>
+                <p>Mari bersama-sama melanjutkan perjalanan cinta kita yang penuh kebahagiaan.</p>
+            </div>
+            <div class="feature-item">
+                <h2>Sweet Memories</h2>
+                <p>Kenangan manis kita adalah bahan bakar cinta kita yang abadi.</p>
+            </div>
+            <div class="feature-item">
+                <h2>Love and Laughter</h2>
+                <p>Cinta dan tawa, dua elemen penting dalam hubungan kita yang indah.</p>
+            </div>
+        </div>
+
+        <div class="slideshow-container" id="slideshow-container"></div>
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function changeText() {
+            var welcomingText = document.getElementById('welcomingText');
+            welcomingText.innerHTML = "Terima kasih, sayang! Setiap detik bersamamu adalah kenangan berharga yang akan kita abadikan selamanya.";
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            var slideshowContainer = document.getElementById("slideshow-container");
+            slideshowContainer.innerHTML = "";
+
+            for (i = 1; i <= 15; i++) {
+                var slide = document.createElement("div");
+                slide.className = "mySlides";
+                var img = document.createElement("img");
+                img.className = "slide-img";
+                img.src = "pict/" + i + ".jpg";
+                img.alt = "Slide " + i;
+                slide.appendChild(img);
+                slideshowContainer.appendChild(slide);
+            }
+
+            slides = document.getElementsByClassName("mySlides");
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        // Autoslide every 3 seconds
+        setInterval(function() {
+            plusSlides(1);
+        }, 3000);
+    </script>
+</body>
+</html>

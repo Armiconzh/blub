@@ -109,10 +109,28 @@
             clickCount++;
 
             if (clickCount === 10) {
-                alert('Selamat icong gabut!');
+                celebrate();
                 clickCount = 0;
             }
         });
+
+        // Fireworks Animation Function
+        function celebrate() {
+            const fireworksContainer = document.createElement('div');
+            fireworksContainer.classList.add('fireworks-container');
+            document.body.appendChild(fireworksContainer);
+
+            for (let i = 0; i < 5; i++) {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                fireworksContainer.appendChild(firework);
+            }
+
+            // Remove the fireworks element after animation
+            fireworksContainer.addEventListener('animationend', () => {
+                fireworksContainer.remove();
+            });
+        }
     </script>
 </body>
 </html>
